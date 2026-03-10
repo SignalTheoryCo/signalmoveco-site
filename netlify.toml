@@ -1,6 +1,8 @@
+[build]
+  functions = "netlify/functions"
+
 [[redirects]]
   from = "/api/messages"
-  to = "https://api.anthropic.com/v1/messages"
+  to = "/.netlify/functions/claude"
   status = 200
   force = true
-  headers = {X-From = "Netlify"}
