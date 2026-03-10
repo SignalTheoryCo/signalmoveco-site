@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/api/messages"
+  to = "https://api.anthropic.com/v1/messages"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}

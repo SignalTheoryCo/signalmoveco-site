@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's your next move — Signal Move Co</title>
+  <meta name="description" content="Pick your state. Name what's loud. Get one honest next step." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1a2744;
+      --navy-mid:  #1e2f52;
+      --navy-light:#243660;
+      --gold:      #c9a84c;
+      --gold-dim:  #a8863a;
+      --cream:     #f2ead8;
+      --cream-dim: #d4c9b0;
+      --white:     #ffffff;
+      --red-dim:   #c0392b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--cream);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .nav-bar {
+      padding: 18px 28px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .nav-bar a {
+      font-family: 'Lora', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-bar a:hover { color: var(--gold); }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 64px 24px 80px;
+    }
+
+    .tool-wrap {
+      width: 100%;
+      max-width: 580px;
+    }
+
+    /* ── SCREENS ── */
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    /* ── SCREEN 1: STATE ── */
+    .screen-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .screen-headline {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .screen-sub {
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+      margin-bottom: 44px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .state-btn {
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--cream);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      padding: 20px 24px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .state-btn:hover, .state-btn.selected {
+      background: var(--navy-light);
+      border-color: var(--gold);
+    }
+
+    .state-btn.selected {
+      border-color: var(--gold);
+    }
+
+    .state-icon {
+      font-size: 1.2rem;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .state-text strong {
+      display: block;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .state-text span {
+      font-size: 0.78rem;
+      color: var(--cream-dim);
+    }
+
+    /* ── SCREEN 2: INPUT ── */
+    .back-btn {
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 32px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .state-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      padding: 4px 12px;
+      margin-bottom: 24px;
+    }
+
+    textarea {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--cream);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.7;
+      padding: 18px 20px;
+      resize: none;
+      outline: none;
+      min-height: 130px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+
+    textarea::placeholder { color: rgba(242,234,216,0.3); }
+    textarea:focus { border-color: var(--gold); }
+
+    .submit-btn {
+      background: var(--gold);
+      border: none;
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      width: 100%;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: #d4b05a;
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ── SCREEN 3: RESULT ── */
+    .result-block {
+      background: var(--navy-mid);
+      border-left: 3px solid var(--gold);
+      padding: 32px 28px;
+      margin-bottom: 32px;
+    }
+
+    .result-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .result-text {
+      font-size: 0.95rem;
+      color: var(--cream);
+      line-height: 1.8;
+    }
+
+    .result-step {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .result-step-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .result-step-text {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* ── NUDGE ── */
+    .nudge-block {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .nudge-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 10px;
+    }
+
+    .nudge-name {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .nudge-desc {
+      font-size: 0.82rem;
+      color: var(--cream-dim);
+      margin-bottom: 18px;
+      line-height: 1.65;
+    }
+
+    .nudge-link {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 11px 24px;
+      transition: background 0.2s;
+    }
+
+    .nudge-link:hover { background: #d4b05a; }
+
+    .nudge-sub {
+      font-size: 0.7rem;
+      color: rgba(242,234,216,0.35);
+      margin-top: 10px;
+    }
+
+    /* ── EMAIL SELF ── */
+    .email-self {
+      margin-top: 8px;
+    }
+
+    .email-self-row {
+      display: flex;
+      gap: 0;
+    }
+
+    .email-self input[type="email"] {
+      flex: 1;
+      background: var(--navy-mid);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-right: none;
+      color: var(--cream);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-self input[type="email"]::placeholder { color: rgba(242,234,216,0.3); }
+    .email-self input[type="email"]:focus { border-color: var(--gold); }
+
+    .email-self button {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .email-self button:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .email-self-label {
+      font-size: 0.7rem;
+      color: rgba(242,234,216,0.4);
+      margin-bottom: 10px;
+    }
+
+    .email-sent {
+      font-size: 0.78rem;
+      color: var(--gold);
+      padding: 12px 0;
+      display: none;
+    }
+
+    /* ── RESET ── */
+    .start-over {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(242,234,216,0.35);
+      padding: 0;
+      margin-top: 28px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      display: block;
+    }
+
+    .start-over:hover { color: var(--cream-dim); }
+
+    /* ── LOADING ── */
+    .loading-wrap {
+      text-align: center;
+      padding: 48px 0;
+      display: none;
+    }
+
+    .loading-wrap.active { display: block; }
+
+    .loading-dots {
+      display: inline-flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .loading-dots span {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+
+    .loading-text {
+      font-size: 0.8rem;
+      color: var(--cream-dim);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px;
+      text-align: center;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+
+    footer a {
+      font-size: 0.72rem;
+      color: rgba(242,234,216,0.3);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+
+    footer a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      main { padding: 40px 20px 60px; }
+      .email-self-row { flex-direction: column; }
+      .email-self input[type="email"] { border-right: 1px solid rgba(201,168,76,0.25); border-bottom: none; }
+    }
+
+    /* ── FADE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .screen.active { animation: fadeUp 0.4s ease both; }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav-bar">
+    <a href="/">&larr; Signal Move Co</a>
+  </div>
+
+  <main>
+    <div class="tool-wrap">
+
+      <!-- SCREEN 1: STATE SELECTOR -->
+      <div class="screen active" id="screen-state">
+        <p class="screen-label">One honest move</p>
+        <h1 class="screen-headline">Where are you<br>stuck right now?</h1>
+        <p class="screen-sub">Pick the one that's truest. Not the worst one. The loudest one.</p>
+
+        <div class="state-grid">
+          <button class="state-btn" onclick="selectState('foggy', this)">
+            <span class="state-icon">◎</span>
+            <span class="state-text">
+              <strong>Foggy</strong>
+              <span>I don't know what the next step even is</span>
+            </span>
+          </button>
+          <button class="state-btn" onclick="selectState('overwhelmed', this)">
+            <span class="state-icon">⊕</span>
+            <span class="state-text">
+              <strong>Overwhelmed</strong>
+              <span>Too many things, too loud, all at once</span>
+            </span>
+          </button>
+          <button class="state-btn" onclick="selectState('stuck', this)">
+            <span class="state-icon">⊘</span>
+            <span class="state-text">
+              <strong>Stuck between options</strong>
+              <span>I know what I need to decide. I'm not deciding.</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: TEXT INPUT -->
+      <div class="screen" id="screen-input">
+        <button class="back-btn" onclick="goBack()">&larr; Back</button>
+        <div id="state-badge" class="state-badge"></div>
+        <h2 class="screen-headline" style="margin-bottom:10px;">What's the loudest<br>thing right now?</h2>
+        <p class="screen-sub">One sentence is enough. Don't edit it.</p>
+        <textarea id="user-input" placeholder="Write it here..." maxlength="400"></textarea>
+        <button class="submit-btn" id="submit-btn" onclick="getMove()">Get my next move</button>
+      </div>
+
+      <!-- LOADING -->
+      <div class="loading-wrap" id="loading">
+        <div class="loading-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="loading-text">Finding the signal...</p>
+      </div>
+
+      <!-- ERROR -->
+      <div class="screen" id="screen-error">
+        <p class="screen-label" style="color:#c0392b;">Something went wrong</p>
+        <h2 class="screen-headline" style="font-size:1.4rem; margin-bottom:12px;">Couldn't reach the API.</h2>
+        <p class="screen-sub" style="margin-bottom:32px;">Check that your API key is set correctly in the file, then try again.</p>
+        <button class="submit-btn" onclick="retryFromError()">Try again</button>
+      </div>
+
+      <!-- SCREEN 3: RESULT -->
+      <div class="screen" id="screen-result">
+        <p class="screen-label">Your next move</p>
+
+        <div class="result-block">
+          <p class="result-label">What you're carrying</p>
+          <p class="result-text" id="result-reflection"></p>
+          <div class="result-step">
+            <p class="result-step-label">One honest next step</p>
+            <p class="result-step-text" id="result-step"></p>
+          </div>
+        </div>
+
+        <!-- NUDGE -->
+        <div class="nudge-block" id="nudge-block">
+          <p class="nudge-label">If you want to go further</p>
+          <p class="nudge-name" id="nudge-name"></p>
+          <p class="nudge-desc" id="nudge-desc"></p>
+          <a href="#" class="nudge-link" id="nudge-link" target="_blank" rel="noopener">Get it on Etsy</a>
+          <p class="nudge-sub">Checkout securely on Etsy. Instant download.</p>
+        </div>
+
+        <!-- EMAIL TO SELF -->
+        <div class="email-self">
+          <p class="email-self-label">Send this to yourself</p>
+          <div class="email-self-row">
+            <input type="email" id="email-input" placeholder="your@email.com" />
+            <button onclick="sendToSelf()">Send it</button>
+          </div>
+          <p class="email-sent" id="email-sent">Sent. Check your inbox.</p>
+        </div>
+
+        <button class="start-over" onclick="resetTool()">Start over</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="/">signalmoveco.com</a>
+  </footer>
+
+  <script>
+    const PRODUCTS = {
+      foggy: {
+        name: 'The First Move Cards',
+        desc: 'Twenty cards across five states. Find your state. Pull the card. Take the step.',
+        url: 'https://www.etsy.com/listing/4465656682/printable-decision-cards-print-and-cut',
+        price: '$9'
+      },
+      overwhelmed: {
+        name: 'SOS Dashboard',
+        desc: 'A single-page triage tool. Tap your state, get the right move in under two minutes.',
+        url: 'https://www.etsy.com/listing/4465768228/sos-dashboard-mobile-decision-tool-pdf',
+        price: '$7'
+      },
+      stuck: {
+        name: 'Self-Trust Reset',
+        desc: 'Forty-two pages that move you from stuck to moving. The framework, the audit, the tools.',
+        url: 'https://www.etsy.com/listing/4465645683/self-trust-workbook-printable-reset-tool',
+        price: '$17'
+      }
+    };
+
+    let currentState = '';
+    let resultData = {};
+
+    function selectState(state, btn) {
+      currentState = state;
+      document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      setTimeout(() => {
+        document.getElementById('screen-state').classList.remove('active');
+        const badge = document.getElementById('state-badge');
+        badge.textContent = state.charAt(0).toUpperCase() + state.slice(1).replace('stuck', 'Stuck between options');
+        document.getElementById('screen-input').classList.add('active');
+        document.getElementById('user-input').focus();
+      }, 180);
+    }
+
+    function goBack() {
+      document.getElementById('screen-input').classList.remove('active');
+      document.getElementById('screen-state').classList.add('active');
+    }
+
+    async function getMove() {
+      const input = document.getElementById('user-input').value.trim();
+      if (!input) {
+        document.getElementById('user-input').focus();
+        return;
+      }
+
+      document.getElementById('screen-input').classList.remove('active');
+      document.getElementById('loading').classList.add('active');
+
+      const stateLabels = {
+        foggy: 'Foggy — I don\'t know the next step',
+        overwhelmed: 'Overwhelmed — too many inputs at once',
+        stuck: 'Stuck between options — I know what I need to decide but I\'m not deciding'
+      };
+
+      const prompt = `You are the voice behind Signal Move Co — direct, peer-level, grounded. No wellness language, no life coach tone, no toxic positivity. You write like Derek Sivers: short, honest, useful.
+
+A person has told you their current state and what's loudest for them right now. Your job is to give them two things:
+
+1. A brief reflection (2-3 sentences max) that names what they're actually carrying — not restating their words, but finding the signal underneath the noise. Make them feel seen, not analyzed.
+
+2. One specific, physical next step they can take in the next 10 minutes. Concrete. No frameworks. No "consider" or "reflect on." A verb and a thing.
+
+Current state: ${stateLabels[currentState]}
+What they wrote: "${input}"
+
+Respond ONLY in this exact JSON format with no preamble, no markdown:
+{
+  "reflection": "...",
+  "step": "..."
+}`;
+
+      try {
+        const response = await fetch('/api/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': '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',
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-request-header': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 1000,
+            messages: [{ role: 'user', content: prompt }]
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('API error: ' + response.status);
+        }
+
+        const data = await response.json();
+        const raw = data.content[0].text.trim();
+        const parsed = JSON.parse(raw);
+
+        resultData = {
+          state: currentState,
+          input: input,
+          reflection: parsed.reflection,
+          step: parsed.step
+        };
+
+        showResult();
+
+      } catch (err) {
+        document.getElementById('loading').classList.remove('active');
+        document.getElementById('screen-error').classList.add('active');
+        console.error(err);
+      }
+    }
+
+    function showResult() {
+      document.getElementById('loading').classList.remove('active');
+
+      document.getElementById('result-reflection').textContent = resultData.reflection;
+      document.getElementById('result-step').textContent = resultData.step;
+
+      const product = PRODUCTS[currentState];
+      document.getElementById('nudge-name').textContent = product.name + ' — ' + product.price;
+      document.getElementById('nudge-desc').textContent = product.desc;
+      document.getElementById('nudge-link').href = product.url;
+
+      document.getElementById('screen-result').classList.add('active');
+    }
+
+    function sendToSelf() {
+      const email = document.getElementById('email-input').value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById('email-input').focus();
+        return;
+      }
+
+      const subject = encodeURIComponent('Your next move — Signal Move Co');
+      const body = encodeURIComponent(
+        `Your state: ${currentState}\n\nWhat you wrote:\n"${resultData.input}"\n\n---\n\n${resultData.reflection}\n\nYour next step:\n${resultData.step}\n\n---\n\nSignal Move Co\nsignalmoveco.com`
+      );
+
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+      setTimeout(() => {
+        document.getElementById('email-sent').style.display = 'block';
+      }, 500);
+    }
+
+    function retryFromError() {
+      document.getElementById('screen-error').classList.remove('active');
+      document.getElementById('screen-input').classList.add('active');
+    }
+
+    function resetTool() {
+      currentState = '';
+      resultData = {};
+      document.getElementById('user-input').value = '';
+      document.getElementById('email-input').value = '';
+      document.getElementById('email-sent').style.display = 'none';
+      document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('selected'));
+
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById('loading').classList.remove('active');
+      document.getElementById('screen-state').classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
