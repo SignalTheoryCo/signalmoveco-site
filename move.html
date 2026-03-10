@@ -661,10 +661,7 @@ Respond ONLY in this exact JSON format with no preamble, no markdown:
         const response = await fetch('/.netlify/functions/claude', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': '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',
-            'anthropic-version': '2023-06-01',
-            'anthropic-dangerous-request-header': 'true'
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             model: 'claude-haiku-4-5-20251001',
@@ -674,12 +671,17 @@ Respond ONLY in this exact JSON format with no preamble, no markdown:
         });
 
         if (!response.ok) {
-          throw new Error('API error: ' + response.status);
+          const errText = await response.text();
+          throw new Error('API error: ' + response.status + ' ' + errText);
         }
 
         const data = await response.json();
+        if (data.error) {
+          throw new Error('Anthropic error: ' + JSON.stringify(data.error));
+        }
         const raw = data.content[0].text.trim();
-        const parsed = JSON.parse(raw);
+        const cleaned = raw.replace(/^```json\s*/,'').replace(/```\s*$/,'').trim();
+        const parsed = JSON.parse(cleaned);
 
         resultData = {
           state: currentState,
@@ -693,6 +695,7 @@ Respond ONLY in this exact JSON format with no preamble, no markdown:
       } catch (err) {
         document.getElementById('loading').classList.remove('active');
         document.getElementById('screen-error').classList.add('active');
+        document.querySelector('#screen-error p').textContent = err.message;
         console.error(err);
       }
     }
@@ -750,4 +753,4 @@ Respond ONLY in this exact JSON format with no preamble, no markdown:
   </script>
 
 </body>
-</html>
+</html>  
