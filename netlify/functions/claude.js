@@ -1,13 +1,25 @@
 exports.handler = async function(event) {
   console.log('Function called, method:', event.httpMethod);
-  
+
+  // Handle CORS preflight
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS'
+      },
+      body: ''
+    };
+  }
+
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   console.log('API key present:', !!apiKey);
-  console.log('API key prefix:', apiKey ? apiKey.substring(0, 20) : 'MISSING');
 
   try {
     console.log('Calling Anthropic API...');
@@ -23,11 +35,10 @@ exports.handler = async function(event) {
 
     console.log('Anthropic response status:', response.status);
     const data = await response.json();
-    console.log('Anthropic response:', JSON.stringify(data).substring(0, 200));
 
     return {
       statusCode: response.status,
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
@@ -38,7 +49,10 @@ exports.handler = async function(event) {
     console.log('Error:', err.message);
     return {
       statusCode: 500,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({ error: err.message })
     };
   }
