@@ -658,7 +658,7 @@ Respond ONLY in this exact JSON format with no preamble, no markdown:
 }`;
 
       try {
-        const response = await fetch('/api/messages', {
+        const response = await fetch('/.netlify/functions/claude', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
