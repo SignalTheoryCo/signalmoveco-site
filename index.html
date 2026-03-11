@@ -235,6 +235,1101 @@
       font-style: normal;
     }
 
+    /* ── MIRROR PARAGRAPH ── */
+    .mirror-para {
+      padding: 72px 28px;
+      text-align: center;
+    }
+
+    .mirror-para p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      line-height: 1.7;
+      color: var(--cream);
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+
+    .mirror-para p:last-child {
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    /* ── PRODUCTS ── */
+    #products {
+      padding: 80px 0 96px;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 56px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+
+    .product-card {
+      background: var(--navy-mid);
+      padding: 44px 36px;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+      position: relative;
+      border-top: 2px solid transparent;
+    }
+
+    .product-card:hover {
+      background: var(--navy-light);
+      border-top-color: var(--gold);
+    }
+
+    .product-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .product-name {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .product-link-text {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+
+    .product-card:hover .product-link-text {
+      color: var(--gold);
+    }
+
+    /* Bundle card spans full width */
+    .product-card--bundle {
+      background: var(--navy-light);
+      border-top: 2px solid var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .product-card--bundle:hover {
+      background: #2a3f72;
+    }
+
+    .bundle-left {}
+
+    .bundle-savings {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 4px 10px;
+      margin-bottom: 12px;
+    }
+
+    .bundle-cta {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .bundle-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .etsy-sub {
+      font-size: 0.68rem;
+      color: rgba(212, 201, 176, 0.4);
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── MECHANISM DIAGRAM ── */
+    .mechanism {
+      padding: 80px 28px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .mechanism-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .mechanism-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .mechanism-headline {
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .mechanism-sub {
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 32px;
+    }
+
+    .flow-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 4px;
+    }
+
+    .flow-box {
+      background: #1e2f52;
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 14px 20px;
+      text-align: center;
+      min-width: 100px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .flow-box:hover {
+      border-color: var(--gold);
+      background: #243660;
+    }
+
+    .flow-box-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .flow-box-name {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .flow-arrow {
+      font-size: 1rem;
+      color: rgba(201,168,76,0.4);
+      padding: 0 6px;
+      align-self: center;
+      margin-top: 10px;
+    }
+
+    .macro-loop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 24px 32px;
+    }
+
+    .macro-label {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.5);
+      width: 100%;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .macro-node {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--cream);
+      padding: 0 4px;
+    }
+
+    .macro-node.highlight {
+      color: var(--gold);
+    }
+
+    .macro-arrow {
+      font-size: 0.8rem;
+      color: rgba(201,168,76,0.35);
+      padding: 0 8px;
+    }
+
+    @media (max-width: 600px) {
+      .flow-row { flex-direction: column; gap: 4px; }
+      .flow-arrow { transform: rotate(90deg); margin: 0; padding: 4px 0; }
+      .flow-box { min-width: 180px; }
+      .macro-loop { padding: 20px 16px; }
+    }
+
+    /* ── SHOP CTA ── */
+    .shop-cta {
+      padding: 80px 28px;
+      text-align: center;
+    }
+
+    .shop-cta p {
+      font-family: 'Lora', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-style: italic;
+      color: var(--cream-dim);
+      max-width: 500px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .shop-cta a {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 36px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .shop-cta a:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── FOUNDER STORY ── */
+    .founder {
+      padding: 80px 28px 96px;
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    .founder-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .founder-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+    }
+
+    .founder-inner p {
+      font-size: 0.95rem;
+      color: var(--cream-dim);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .founder-inner p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .founder-expand {
+      margin-top: 28px;
+    }
+
+    .founder-pullquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold);
+      line-height: 1.6;
+      margin: 32px 0;
+      padding-left: 20px;
+      border-left: 2px solid var(--gold-dim);
+    }
+
+    .founder-inner strong {
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    .founder-toggle-input {
+      display: none;
+    }
+
+    .founder-expand {
+      display: none;
+    }
+
+    .founder-toggle-input:checked ~ .founder-expand {
+      display: block;
+    }
+
+    .read-more-btn {
+      display: inline-block;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 0;
+      margin-top: 28px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .read-less-label { display: none; }
+    .read-more-label { display: inline; }
+
+    .founder-toggle-input:checked ~ .read-more-btn .read-more-label { display: none; }
+    .founder-toggle-input:checked ~ .read-more-btn .read-less-label { display: inline; }
+
+    /* ── PRODUCTS INTRO ── */
+    .products-intro {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .products-lead {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .products-sub {
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+    }
+
+    /* ── FEATURED PRODUCT CARD (Reset) ── */
+    .product-card--featured {
+      display: block;
+      margin-bottom: 2px;
+      border-top: 2px solid var(--gold-dim);
+    }
+
+    .product-card--featured:hover {
+      border-top-color: var(--gold);
+    }
+
+    /* ── CONNECTOR LINE ── */
+    .tools-connector {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201, 168, 76, 0.45);
+      text-align: center;
+      padding: 28px 0 20px;
+      position: relative;
+    }
+
+    .tools-connector::before,
+    .tools-connector::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: calc(50% - 120px);
+      height: 1px;
+      background: rgba(201, 168, 76, 0.15);
+    }
+
+    .tools-connector::before { left: 0; }
+    .tools-connector::after  { right: 0; }
+
+    /* ── KIT EMBED ── */
+    .kit-embed {
+      max-width: 440px;
+      margin: 28px auto 0;
+    }
+
+    /* Override Kit default styles to match brand */
+    .kit-embed .formkit-form {
+      background: transparent !important;
+    }
+      padding: 80px 28px;
+      background: var(--navy-mid);
+      text-align: center;
+    }
+
+    .email-section h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .email-section p {
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+      max-width: 420px;
+      margin: 0 auto 36px;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .email-form input[type="email"] {
+      flex: 1;
+      background: var(--navy);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-right: none;
+      color: var(--cream);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      padding: 14px 18px;
+      outline: none;
+    }
+
+    .email-form input[type="email"]::placeholder {
+      color: rgba(242, 234, 216, 0.35);
+    }
+
+    .email-form input[type="email"]:focus {
+      border-color: var(--gold);
+    }
+
+    .email-form button {
+      background: var(--gold);
+      border: none;
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .email-form button:hover {
+      background: #d4b05a;
+    }
+
+    .email-fine {
+      font-size: 0.72rem;
+      color: rgba(242, 234, 216, 0.35);
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 28px;
+      text-align: center;
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .footer-logo {
+      font-family: 'Lora', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 12px;
+    }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      color: rgba(242, 234, 216, 0.35);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      color: rgba(242, 234, 216, 0.4);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 56px 20px 72px; }
+
+      .product-card--bundle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .email-form {
+        flex-direction: column;
+      }
+
+      .email-form input[type="email"] {
+        border-right: 1px solid rgba(201, 168, 76, 0.35);
+        border-bottom: none;
+      }
+
+      .email-form input[type="email"]:focus {
+        border-color: var(--gold);
+      }
+
+      .email-form button {
+        padding: 14px;
+      }
+    }
+
+    /* ── ENTRANCE ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow  { animation: fadeUp 0.6s ease both; }
+    .hero-headline { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub      { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-cta      { animation: fadeUp 0.6s 0.3s ease both; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav-wrapper">
+    <nav>
+      <a href="#top" class="nav-logo">
+        <img src="SignalMoveCo_Icon_1000px.png" alt="Signal Move Co" />
+        <span class="nav-logo-text">Signal Move Co</span>
+      </a>
+      <a href="#products" class="nav-cta">See the tools</a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <a href="#top" class="hero-logo">
+      <img src="SignalMoveCo_Icon_1000px.png" alt="Signal Move Co" />
+    </a>
+    <p class="hero-eyebrow">Signal Move Co</p>
+    <h1 class="hero-headline serif">You don't need more clarity.<br>You need one honest move.</h1>
+    <p class="hero-premise">"Get clear first, then move. Feel ready, then go."</p>
+    <p class="hero-backwards serif">It's backwards.</p>
+    <a href="#products" class="hero-cta">See the tools</a>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- MIRROR PARAGRAPH -->
+  <section class="mirror-para">
+    <div class="container--narrow">
+      <p>You've probably already started something. Built a version of it, even. And somewhere in the middle you slowed down. Not because you hit a wall, but because you were still holding the other options open. Just in case.</p>
+      <p>The word "decide" comes from the Latin <em>decidere</em>. To cut off. Same root as incision. Choosing was never the hard part. Letting the other options die is what stalls people.</p>
+      <p>You don't need more information. You need to make the cut.</p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container--wide">
+      <div class="products-intro">
+        <p class="products-lead serif">Pick the tool that matches your state.</p>
+        <p class="products-sub">Print at home. Use today. No framework to master. Just the right tool for right now.</p>
+        <p class="products-sub" style="margin-top:10px;">Not sure which one fits? <a href="/move" style="color:var(--gold); text-decoration:underline; text-underline-offset:3px;">Find out in 60 seconds.</a></p>
+      </div>
+
+      <!-- Reset - featured first -->
+      <a href="https://www.etsy.com/listing/4465645683/self-trust-workbook-printable-reset-tool" class="product-card product-card--featured" target="_blank" rel="noopener">
+        <p class="product-tag">Print-at-home &nbsp;&bull;&nbsp; 42 pages &nbsp;&bull;&nbsp; The core work</p>
+        <h2 class="product-name serif">Self-Trust Reset</h2>
+        <p class="product-desc">Forty-two pages that move you from stuck to moving. Not a journal. A working document. The framework, the audit, the tools to find your signal and take the step.</p>
+        <div class="product-footer">
+          <span class="product-price">$17</span>
+          <span class="product-link-text">Get the reset &rarr;</span>
+        </div>
+        <p class="etsy-sub">Checkout securely on Etsy. Instant download.</p>
+      </a>
+
+      <p class="tools-connector">Tools built from the same framework</p>
+
+      <div class="products-grid">
+
+        <!-- SOS -->
+        <a href="https://www.etsy.com/listing/4465768228/sos-dashboard-mobile-decision-tool-pdf" class="product-card" target="_blank" rel="noopener">
+          <p class="product-tag">Mobile &nbsp;&bull;&nbsp; Hyperlink PDF</p>
+          <h2 class="product-name serif">SOS Dashboard</h2>
+          <p class="product-desc">A single-page triage tool. Tap your state, get the right move in under two minutes. Built for phone. Add it to your home screen and it's there when you need it.</p>
+          <div class="product-footer">
+            <span class="product-price">$7</span>
+            <span class="product-link-text">Get the dashboard &rarr;</span>
+          </div>
+          <p class="etsy-sub">Checkout securely on Etsy. Instant download.</p>
+        </a>
+
+        <!-- Cards -->
+        <a href="https://www.etsy.com/listing/4465656682/printable-decision-cards-print-and-cut" class="product-card" target="_blank" rel="noopener">
+          <p class="product-tag">Print-at-home &nbsp;&bull;&nbsp; 20 cards</p>
+          <h2 class="product-name serif">The First Move Cards</h2>
+          <p class="product-desc">Twenty cards across five states: Foggy, Overwhelmed, Decision, Energy, Maintenance. Find your state. Pull the card. Take the step.</p>
+          <div class="product-footer">
+            <span class="product-price">$9</span>
+            <span class="product-link-text">Get the cards &rarr;</span>
+          </div>
+          <p class="etsy-sub">Checkout securely on Etsy. Instant download.</p>
+        </a>
+
+      </div>
+
+      <!-- Bundle -->
+      <a href="https://www.etsy.com/listing/4462760175/self-trust-reset-bundle-printable" class="product-card product-card--bundle" target="_blank" rel="noopener">
+        <div class="bundle-left">
+          <span class="bundle-savings">Best value &nbsp;&bull;&nbsp; Save $5</span>
+          <h2 class="product-name serif" style="margin-bottom:8px;">The Full Bundle</h2>
+          <p class="product-desc" style="margin-bottom:0;">The Reset is the foundation. The Cards catch you in the moment. The Dashboard keeps you from spiraling when you're off-script. Together, they cover the full arc.</p>
+          <p class="etsy-sub" style="margin-top:12px;">Checkout securely on Etsy. Instant download.</p>
+        </div>
+        <span class="bundle-cta">$28 &mdash; Get the bundle &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MECHANISM DIAGRAM -->
+  <section class="mechanism">
+    <div class="mechanism-inner">
+
+      <p class="mechanism-label">How the system works</p>
+      <h2 class="mechanism-headline serif">From noise to movement.<br>One step at a time.</h2>
+      <p class="mechanism-sub">The tools don't give you clarity. They give you a step. The clarity comes from taking it.</p>
+
+      <div class="flow-row">
+        <div class="flow-node">
+          <div class="flow-box">
+            <p class="flow-box-label">Start here</p>
+            <p class="flow-box-name">Name the noise</p>
+          </div>
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node">
+          <div class="flow-box">
+            <p class="flow-box-label">Then</p>
+            <p class="flow-box-name">Find the signal</p>
+          </div>
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node">
+          <div class="flow-box">
+            <p class="flow-box-label">Then</p>
+            <p class="flow-box-name">Make the cut</p>
+          </div>
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-node">
+          <div class="flow-box">
+            <p class="flow-box-label">Then</p>
+            <p class="flow-box-name">Take one step</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="macro-loop">
+        <p class="macro-label">What happens when you do</p>
+        <span class="macro-node highlight serif">Movement</span>
+        <span class="macro-arrow">&rarr;</span>
+        <span class="macro-node highlight serif">Clarity</span>
+        <span class="macro-arrow">&rarr;</span>
+        <span class="macro-node highlight serif">Self-Trust</span>
+        <span class="macro-arrow">&rarr;</span>
+        <span class="macro-node serif" style="color:var(--cream-dim); font-style:italic;">Repeat</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="shop-cta">
+    <div class="container">
+      <p>"You are not behind. One honest move builds self-trust. Keep moving."</p>
+      <p style="font-family:'Poppins',sans-serif; font-style:normal; font-size:0.78rem; color:rgba(212,201,176,0.55); margin-bottom:32px; margin-top:-16px;">All tools are print-at-home digital downloads. Instant access.</p>
+      <a href="https://www.etsy.com/shop/SignalMoveCo" target="_blank" rel="noopener">Get the Reset on Etsy &rarr;</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- FOUNDER STORY -->
+  <section class="founder">
+    <div class="founder-inner">
+      <p class="founder-label">The founder</p>
+
+      <!-- Always visible: story layer -->
+      <p>The framework didn't come from a book.</p>
+      <p>I spent about twenty years in ecommerce fraud. What that work teaches you is this: the most convincing story is usually the one most worth questioning.</p>
+      <p>In 2018 I gave my notice and left Ohio with no plan. I didn't leave with clarity. I left with one decision. The clarity came later, while moving. That's the whole thing. That's this.</p>
+      <p>In 2021 I was in a car accident and spent the next 3 months in a wheelchair. You don't think your way back into a working body. You do the rep. Then another. That's not a metaphor. That's what happened.</p>
+      <p>There's a myth that runs through almost everything. Get clear first, then move. Feel ready, then go.</p>
+      <p><strong>It's backwards.</strong></p>
+      <p>The ones who stay stuck aren't lacking information. They're waiting on a feeling of readiness that doesn't arrive before you act. It arrives after.</p>
+      <p>I keep accidentally arriving at the beginning of things. This is the latest one.</p>
+
+      <!-- Expands on Read more: full v9 -->
+      <input type="checkbox" id="founderToggle" class="founder-toggle-input" />
+      <div class="founder-expand" id="founderExpand">
+
+        <p>In 2002, a friend offered me a job at his startup. I had never worked online before. The company was in ecommerce, in the early days when our little office was figuring out what online fraud even looked like in real-time. There were no rules. No industry standard. No playbook. I started doing basic order verification and quickly moved into working closely with a good friend, reviewing orders for anything that felt off.</p>
+        <p>I don't even remember if we called it fraud prevention. That was 25 years ago now and honestly that part is fuzzy. What I remember is five people in an office figuring it out as we went.</p>
+        <p>I did that work for a long time. What it teaches you is this: the most convincing story is usually the one most worth questioning. Any system built on what you hope is happening will fail the moment reality shows up. You stop trusting easy answers. You look for what's actually there.</p>
+
+        <p class="founder-pullquote">"I didn't leave with clarity. I left with one decision. The clarity came later, while moving. That's the whole thing. That's this."</p>
+
+        <p>I became a father at 20. My twenties didn't look like most people's twenties. I loved Kerouac, loved the idea of the open road, loved all of it from a distance while I did what you do when someone is depending on you.</p>
+        <p>In the summer of 2017, my daughter got married. She and her husband were already in Florida building their own life. Something in me recognized that the thing keeping me in Ohio wasn't there in the same way anymore. Not in a sad way. More like the winds shifting.</p>
+        <p>That fall, I was helping build a new team at work. I was the obvious choice to lead it. And I knew, with complete certainty, that I wasn't going to take it. Not because I was burned out. Because I finally had no good reason left to stay.</p>
+        <p>When someone asks for your decision by next week and you already know the answer, the only question left is whether you're honest about it.</p>
+        <p>I gave my notice. Sold off most of what I owned and packed what was left. I'd been dreaming about that kind of move since I first read On The Road. Now I just went.</p>
+        <p>I didn't leave with clarity. I left with one decision. The clarity came later, while moving. That's the whole thing. That's this.</p>
+
+        <p class="founder-pullquote">"Whether I'd walk right again wasn't something I got clarity on first. I just did the next thing. The evidence built up and that became the self-trust."</p>
+
+        <p>In March 2021, a few days before I was supposed to hit the road again, I was in a car accident. Compound fractures in both ankles. Two surgeries in two days. Two weeks hospitalized, three months in a wheelchair, then a long time relearning to walk. Pins and screws are still in there.</p>
+        <p>You don't think your way back into a working body. You don't feel ready and then start. You do the rep. Then another. Then another. Whether I'd walk right again wasn't something I got clarity on first. I just did the next thing. The evidence built up and that became the self-trust.</p>
+        <p>That's not a metaphor. That's what happened.</p>
+
+        <p class="founder-pullquote">"A lighthouse doesn't clear the fog. It holds one point so you can move without drifting."</p>
+
+        <p>I've loved lighthouses since I was a kid. We moved constantly growing up, city to city, and every summer ended up on the coast of Maine. I'd find a lighthouse and sit on the rocks near it and stay longer than made sense. I couldn't have told you why.</p>
+        <p>Years later, my parents retired to Damariscotta. My brother Bill and I used to drive out to Pemaquid Point together when I'd visit. It's one of my favorite places on earth. The lighthouse sits on bare rock and does nothing dramatic. It just holds its position.</p>
+        <p>When I was working out of a small office near Bug Light Park in South Portland, I'd show up early to sit by the water. Same pull. Same quiet.</p>
+        <p>A lighthouse doesn't clear the fog. It holds one point so you can move without drifting. I'd been trying to be that for other people long before I built this company.</p>
+        <p>I've lost people. JB, who I worked alongside in that five-person office back in 2002, died in 2004. He was 40. Everybody who knew him knew that the room was different when he walked in. Clients sent gifts when he passed. One of them painted a portrait of him and sent it to the office. That was JB.</p>
+        <p>Losing him early taught me something about time that I haven't forgotten.</p>
+        <p>Twenty years later, I lost my best friend Theo the week before Christmas 2024. We used to play chess until morning and talk about everything. He was 40.</p>
+        <p>My brother Bill died on Christmas Day 2025. He was 57. I'm 51. I don't have a clean sentence for that. What I know is it makes you less willing to spend time on things that aren't real.</p>
+
+        <p class="founder-pullquote">"The ones who stay stuck aren't lacking information. They're waiting on a feeling of readiness that doesn't arrive before you act. It arrives after."</p>
+
+        <p>Signal Move Co came from all of it.</p>
+        <p>The fraud years. Building something without a net. Quitting without a plan. Relearning to walk. The people I've lost. Pemaquid Point. Bug Light. Every lighthouse I sat near as a kid while we were in the middle of moving somewhere else.</p>
+        <p>There's a myth that runs through almost everything, self-help, corporate culture, the advice well-meaning people give. It says: get clear first, then move. Make the plan, then execute. Feel ready, then go.</p>
+        <p>It's backwards.</p>
+        <p>It was backwards in 2002 in that office. Backwards in 2018 when I gave my notice. Backwards in a hospital bed in 2021 doing one rep at a time with no guarantee of the outcome. The clarity never came first. It came from moving. Every time.</p>
+        <p>The ones who stay stuck aren't lacking information. They're waiting on a feeling of readiness that doesn't arrive before you act. It arrives after.</p>
+        <p>The Self-Trust Reset exists for that person. Not to motivate them. Not to give them another framework to think about. To give them one honest next step and something to write it on.</p>
+        <p>That's the whole thing.</p>
+        <p>I have five grandchildren. The youngest was born three weeks ago. I'm not building this for some future version of myself who finally has it figured out. I'm building it because the tools I needed at 20, at 35, at 43 didn't exist in a form I could hand someone. They do now. That's the reason this needs to outlast me.</p>
+        <p style="color:var(--cream-dim); font-style:italic; font-size:0.85rem;">Sebbe Jones is the founder of Signal Move Co. He lives near Lake Michigan in northwest Indiana.</p>
+      </div>
+
+      <label for="founderToggle" class="read-more-btn">
+        <span class="read-more-label">Read more</span>
+        <span class="read-less-label">Read less</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- FREE DOWNLOAD -->
+  <section class="email-section" id="free">
+    <div class="container">
+      <p class="section-label" style="margin-bottom:20px;">Free download</p>
+      <h2 class="serif" style="text-align:center;">Not ready to buy? Start here.</h2>
+      <p style="text-align:center;">The Signal vs. Noise Cheat Sheet is free. One page. It's the same framework the tools are built on.</p>
+      <!-- Kit embed -->
+      <div class="kit-embed">
+        <script async data-uid="c98f3adb4c" src="https://signal-move-co.kit.com/c98f3adb4c/index.js"></script>
+      </div>
+      <p class="email-fine" style="text-align:center;">No list. No pitch sequence. Just the PDF.</p>
+      <p class="email-fine" style="text-align:center; margin-top:8px;">Check your spam folder if it doesn't show up within a few minutes.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">Signal Move Co</p>
+    <p class="footer-tagline">Move first. Clarity follows.</p>
+    <div class="footer-links">
+      <a href="https://www.etsy.com/shop/SignalMoveCo" target="_blank" rel="noopener">Etsy shop</a>
+      <a href="/cdn-cgi/l/email-protection#14677176767154677d737a7578797b6271777b3a777b79"><span class="__cf_emai
+    /* ── UTILITY ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .container--wide {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .gold { color: var(--gold); }
+    .serif { font-family: 'Lora', serif; }
+
+    /* ── NAV ── */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    nav {
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      padding: 6px 14px 6px 6px;
+      border: 1px solid transparent;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-logo:hover {
+      border-color: var(--gold-dim);
+      box-shadow: 0 0 12px rgba(201, 168, 76, 0.25);
+    }
+
+    .nav-logo img {
+      height: 34px;
+      width: auto;
+    }
+
+    .nav-logo-text {
+      font-family: 'Lora', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+
+    .nav-cta {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold-dim);
+      padding: 8px 20px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
+      box-shadow: 0 0 14px rgba(201, 168, 76, 0.35);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 72px 28px 96px;
+      text-align: center;
+    }
+
+    .hero-logo {
+      display: inline-block;
+      margin-bottom: 32px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .hero-logo img {
+      height: 80px;
+      width: auto;
+      filter: drop-shadow(0 0 0px rgba(201, 168, 76, 0));
+      transition: filter 0.3s ease;
+    }
+
+    .hero-logo:hover img {
+      filter: drop-shadow(0 0 18px rgba(201, 168, 76, 0.6));
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .hero-headline {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 28px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--cream-dim);
+      max-width: 480px;
+      margin: 0 auto 48px;
+      line-height: 1.65;
+    }
+
+    .hero-premise {
+      font-size: clamp(0.82rem, 2vw, 0.95rem);
+      color: rgba(212, 201, 176, 0.5);
+      font-style: italic;
+      margin-bottom: 10px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-backwards {
+      font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 44px;
+      line-height: 1.2;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 40px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .hero-cta:hover {
+      background: #d4b05a;
+      transform: translateY(-1px);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      margin: 0 28px;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      padding: 80px 28px;
+      text-align: center;
+    }
+
+    .pull-quote blockquote {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--cream);
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+
+    .pull-quote cite {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
     /* ── PRODUCTS ── */
     #products {
       padding: 80px 0 96px;
